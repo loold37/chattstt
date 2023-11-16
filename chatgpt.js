@@ -28,7 +28,7 @@ export async function startChat(message)
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer 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", //apikeyyyyyyyyyyyyyyyyyyy
+            Authorization: "Bearer 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", //apikeyyyyyyyyyyyyyyyyyyy
           },
           method: "POST",
           body: JSON.stringify({
