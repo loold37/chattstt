@@ -22,6 +22,9 @@ export async function startChat(message)
     speechMsg.pitch = 1; // 음높이: 0 ~ 2
     speechMsg.lang = "ko-KR";
 
+    p.textContent = "생성중..";
+    words.appendChild(p);
+
     let messages;
     messages = [
           { role: "system", content: "You are ChatGPT, a large language model trained by OpenAI. 답변을 한글로 번역해서 출력해 줘." }
