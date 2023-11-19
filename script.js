@@ -1,4 +1,5 @@
 import { startChat } from "./chatgpt.js"
+import { onchatgpt } from "./chatgpt.js"
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -18,23 +19,26 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
     makeNewTextContent(); // 음성 인식 시작시마다 새로운 문단을 추가한다.
   };
   recognition.onend = function() {
-    if(p.textContent.trim() === '') {
+    if(p.textContent.trim() === '' || onchatgpt === true) {
       console.log("a");
     } else {
       console.log(p.textContent);
+      console.log("bbbb " + onchatgpt);
       startChat(p.textContent);
+      console.log("aaaa " + onchatgpt);
     }
+    console.log("cccc " + onchatgpt);
     recognition.start();
   };
 
   recognition.onresult = function(e) {
-    let texts = Array.from(e.results)
+    if(onchatgpt === false) {
+      let texts = Array.from(e.results)
             .map(results => results[0].transcript).join("");
-
-    texts.replace(/느낌표|강조|뿅/gi, '❗️');
-
-    p.textContent = texts;
+  
+      texts.replace(/느낌표|강조|뿅/gi, '❗️');
+  
+      p.textContent = texts;
+    }
+    
   };
-
-
-
