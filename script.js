@@ -1,6 +1,10 @@
 import { startChat } from "./chatgpt.js"
 import { onchatgpt } from "./chatgpt.js"
 
+if(!window.speechSynthesis) {  
+  alert("지원하지 않는 브라우저입니다. 크롬 브라우저를 이용해주세요.");  
+}
+
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   let recognition = new SpeechRecognition();
