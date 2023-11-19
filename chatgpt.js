@@ -1,7 +1,7 @@
 let onchatgpt = false;
 export { onchatgpt };
 
-let chatcode = "c2stWkVoOU5NbzFuU1cxMkRJcWdHVVhUM0JsYmtGSlBOV2RDNmdWZlhGNnAyTkhPZDRa"
+let chatcode = "c2stWkVoOU5NbzFuU1cxMkRJcWdHVVhUM0JsYmtGSlBOV2RDNmdWZlhGNnAyTkhPZDRa";
 
 export async function startChat(message)
 {
