@@ -1,7 +1,12 @@
+let onchatgpt = false;
+export { onchatgpt };
+
 export async function startChat(message)
 {
     //let message = $('#message').val();
     //console.log(message);
+    onchatgpt = true;
+  
     var words = document.querySelector('.words');
     let p = document.createElement('p');
     let texts;
@@ -28,7 +33,7 @@ export async function startChat(message)
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer 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", //apikeyyyyyyyyyyyyyyyyyyy
+            Authorization: "Bearer ", //apikeyyyyyyyyyyyyyyyyyyy
           },
           method: "POST",
           body: JSON.stringify({
@@ -53,6 +58,7 @@ export async function startChat(message)
 
           speechMsg.text = newtext.join("");
           spsp.speak(speechMsg);
+          onchatgpt = false;
           
           /*while(newtext.length !== 0) {
             console.log(spsp.speaking);
